@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ZSZ</title>
+    <link>https://pingqingsheng.github.io/</link>
+    <description>Recent content on ZSZ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Apr 2017 22:25:17 -0500</lastBuildDate>
+    
+	<atom:link href="https://pingqingsheng.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>first post</title>
+      <link>https://pingqingsheng.github.io/blog/first-post/</link>
+      <pubDate>Fri, 14 Apr 2017 22:25:17 -0500</pubDate>
+      
+      <guid>https://pingqingsheng.github.io/blog/first-post/</guid>
+      <description>This is my first Post !!</description>
+    </item>
+    
+    <item>
+      <title>contact</title>
+      <link>https://pingqingsheng.github.io/contact/</link>
+      <pubDate>Thu, 09 Mar 2017 13:23:28 +0800</pubDate>
+      
+      <guid>https://pingqingsheng.github.io/contact/</guid>
+      <description>This is where you overcome your social anxiety and let people know how to reach you.
+You could try linking to your email, for instance. Just check it, okay?</description>
+    </item>
+    
+    <item>
+      <title>about</title>
+      <link>https://pingqingsheng.github.io/about/</link>
+      <pubDate>Thu, 09 Mar 2017 13:19:25 +0800</pubDate>
+      
+      <guid>https://pingqingsheng.github.io/about/</guid>
+      <description>Test test test test !!!! Test test test test !!!! Test test test test !!!! Test test test test !!!! Test test test test !!!! Test test test test !!!!</description>
+    </item>
+    
+  </channel>
+</rss>
