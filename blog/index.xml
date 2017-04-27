@@ -20,5 +20,24 @@
       <description>This is my first Post !!</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://pingqingsheng.github.io/blog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pingqingsheng.github.io/blog/</guid>
+      <description>INLA : Let’s bypass MCMCcode{white-space: pre;}pre:not([class]) {background-color: white;}if (window.hljs &amp;&amp; document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) {window.setTimeout(function() {hljs.initHighlighting();}, 0);}h1 {font-size: 34px;}h1.title {font-size: 38px;}h2 {font-size: 30px;}h3 {font-size: 24px;}h4 {font-size: 18px;}h5 {font-size: 16px;}h6 {font-size: 12px;}.</description>
+    </item>
+    
+    <item>
+      <title>Build a R Package with Rcpp in 30 minutes</title>
+      <link>https://pingqingsheng.github.io/blog/build-a-r-package-with-rcpp-in-30-minutes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pingqingsheng.github.io/blog/build-a-r-package-with-rcpp-in-30-minutes/</guid>
+      <description>Rcpp  is package with which you could write c++ code within R.You could simply write a inline C++ code in R like this:
+library(Rcpp)# Define a Rcpp functionadd_vec &amp;lt;- Rcpp::cppFunction(&amp;#39;Rcpp::NumericVector add_vec( Rcpp::NumericVector a, Rcpp::NumericVector b){return a+b;}&amp;#39;)# See the resultt(add_vec(c(1,2,3), c(2,3,4)))Or you could save your  .cpp  file and call the function from R. With this powerful tool, you gain the productivity of R and the speed of C++.</description>
+    </item>
+    
   </channel>
 </rss>
