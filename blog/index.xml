@@ -6,7 +6,7 @@
     <description>Recent content in Blogs on ZSZ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Apr 2017 15:27:33 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 26 Apr 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://pingqingsheng.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Build a R Package with Rcpp in 30 minutes</title>
       <link>https://pingqingsheng.github.io/blog/build-a-r-package-with-rcpp-in-30-minutes/</link>
-      <pubDate>Wed, 26 Apr 2017 15:27:33 -0500</pubDate>
+      <pubDate>Wed, 26 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://pingqingsheng.github.io/blog/build-a-r-package-with-rcpp-in-30-minutes/</guid>
       <description>Rcpp  is package with which you could write c++ code within R. You could simply write a inline C++ code in R like this: library(Rcpp) # Define a Rcpp function add_vec &amp;lt;- Rcpp::cppFunction( &#39;Rcpp::NumericVector add_vec( Rcpp::NumericVector a, Rcpp::NumericVector b){ return a+b; }&#39; ) # See the result t(add_vec(c(1,2,3), c(2,3,4)))  Or you could save your  .cpp  file and call the function from R. With this powerful tool, you gain the productivity of R and the speed of C++.</description>

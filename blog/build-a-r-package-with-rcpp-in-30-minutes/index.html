@@ -41,7 +41,7 @@
 
 
     
-    <link rel="stylesheet" href="https://pingqingsheng.github.io/css/style.css?t=1493260566">
+    <link rel="stylesheet" href="https://pingqingsheng.github.io/css/style.css?t=1493261521">
     
 
 
@@ -122,7 +122,7 @@ ga('send', 'pageview');
     <div class="container fade-in two">
         <h2 class="title is-1 top-pad strong-post-title"><a href="https://pingqingsheng.github.io/blog/build-a-r-package-with-rcpp-in-30-minutes/">Build a R Package with Rcpp in 30 minutes</a></h2>
             <div class="post-data">
-                April 427, 26047 |
+                April 40, 26047 |
                 4 minutes read
             </div>
             
@@ -192,12 +192,14 @@ powerful tool, you gain the productivity of R and the speed of C++.
 </p>
 
 <p style=' font-family:"Times New Rome"; font-size:14pt '>
-Let's try to build a small package with <code> Rcpp </code>. Take the Poisson LASSO regression as an example. I'm gonna to install this model with ADMM algorithm and through <code> armidillo </code> package.
+Let's try to build a small package with <code> Rcpp </code>. Take the Poisson LASSO regression as an example. I'm gonna to install this model with ADMM algorithm and through <code> RcppArmadillo </code> package.
 </p>
 
 <p style=' font-family:"Times New Rome"; font-size:14pt '>
 So let's get start:
 </p>
+
+<p><br><br></p>
 
 <h3 id="prerequisite"><strong>Prerequisite</strong></h3>
 
@@ -209,8 +211,7 @@ So let's get start:
 + <code> RcppArmadillo </code>
 </dl>
 
-<p><br />
-</p>
+<p><br><br></p>
 
 <h3 id="build-the-skeleton-of-the-package"><strong>Build the Skeleton of the Package</strong></h3>
 
@@ -225,9 +226,9 @@ Rcpp.package.skeleton('PoisLASSO') # Your package name should go there
 In the folder PoisLASSO, there is a folder called src where you should put all your C++ files there. Let's build a new C++ file called "*PoisLASSO.cpp*". And we'll put our function in this file.
 </p>
 
-<h3 id="poisson-lasso-regression-and-admm-algorithm"><strong>Poisson LASSO Regression and ADMM algorithm</strong></h3>
+<p><br><br></p>
 
-<p></p>
+<h3 id="poisson-lasso-regression-and-admm-algorithm"><strong>Poisson LASSO Regression and ADMM algorithm</strong></h3>
 
 <p style=' font-family:"Times New Rome"; font-size:14pt '>
 I'll skip the detail of this algorithm. But the main idea is to iteratively optimize the objective function and its conjugate problem. The objective function is solved with Lagrange multipler method with augmented variable. And the algorithm is presented as below:
@@ -335,6 +336,8 @@ I'll skip the detail of this algorithm. But the main idea is to iteratively opti
 }
 
 </code></pre>
+
+<p><br><br></p>
 
 <h3 id="build-the-package-and-upload-to-github"><strong>Build the Package and Upload to Github</strong></h3>
 
