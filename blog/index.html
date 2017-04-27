@@ -8,16 +8,16 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer">
-<meta name="description" content="This Site is Under Construction">
+<meta name="description" content="This Site is up-to-date v0.01">
 
-<base href="https://pingqingsheng.github.io/">
+<base href="/">
 <title>
 
 
      Blogs 
 
 </title>
-<link rel="canonical" href="https://pingqingsheng.github.io/blog/">
+<link rel="canonical" href="/blog/">
 
 
 
@@ -41,7 +41,7 @@
 
 
     
-    <link rel="stylesheet" href="https://pingqingsheng.github.io/css/style.css?t=1493268918">
+    <link rel="stylesheet" href="/css/style.css?t=1493270695">
     
 
 
@@ -49,7 +49,7 @@
 
 <link rel="shortcut icon"
 
-    href="https://pingqingsheng.github.io/img/fav.ico"
+    href="/img/fav.ico"
 
 >
 
@@ -65,7 +65,7 @@ ga('send', 'pageview');
 
 
 
-  <link href="https://pingqingsheng.github.io/blog/index.xml" rel="alternate" type="application/rss+xml" title="ZSZ" />
+  <link href="/blog/index.xml" rel="alternate" type="application/rss+xml" title="ZSZ" />
 
 
 
@@ -93,22 +93,22 @@ ga('send', 'pageview');
     </span>
     <div id="nav-menu" class="nav-left nav-menu">
       <span class="nav-item">
-        <a href="https://pingqingsheng.github.io/">Main</a>
+        <a href="/">Main</a>
       </span>
       <span class="nav-item">
-        <a href="https://pingqingsheng.github.io/#about">About</a> 
-      </span>
-    
-      <span class="nav-item">
-        <a href="https://pingqingsheng.github.io/#projects">Projects</a> 
+        <a href="/#about">About</a> 
       </span>
     
       <span class="nav-item">
-        <a href="https://pingqingsheng.github.io/#contact">Contact</a>
+        <a href="/#projects">Projects</a> 
       </span>
     
       <span class="nav-item">
-        <a href="https://pingqingsheng.github.io/index.xml"><i class="fa fa-rss"></i></a>
+        <a href="/#contact">Contact</a>
+      </span>
+    
+      <span class="nav-item">
+        <a href="/index.xml"><i class="fa fa-rss"></i></a>
       </span>
     
     </div>
@@ -121,10 +121,13 @@ ga('send', 'pageview');
     
     <h2 class="title is-2 top-pad">Latest Post</h2>
          
-        <div class="summary">April 425, 14047
-            <h3 class="title is-3 strong-post-title"><a href="https://pingqingsheng.github.io/blog/first-post/">first post</a></h3>
+        <div class="summary">April 40, 26047
+            <h3 class="title is-3 strong-post-title"><a href="/blog/build-a-r-package-with-rcpp-in-30-minutes/">Build a R Package with Rcpp in 30 minutes</a></h3>
                 <div class="markdown">
-                This is my first Post !!
+                Rcpp  is package with which you could write c++ code within R.You could simply write a inline C++ code in R like this:
+library(Rcpp)# Define a Rcpp functionadd_vec &lt;- Rcpp::cppFunction(&#39;Rcpp::NumericVector add_vec( Rcpp::NumericVector a, Rcpp::NumericVector b){return a+b;}&#39;)# See the resultt(add_vec(c(1,2,3), c(2,3,4)))Or you could save your  .cpp  file and call the function from R. With this powerful tool, you gain the productivity of R and the speed of C++.
+                
+                <a href="/blog/build-a-r-package-with-rcpp-in-30-minutes/">...Read More</a>
                 
                 </div>
         </div>
@@ -136,7 +139,19 @@ ga('send', 'pageview');
         
             
                 <li class="post-item">
-    <span><a href="https://pingqingsheng.github.io/blog/first-post/">first post</a></span> - <span>April 425, 14047</span>
+    <span><a href="/blog/build-a-r-package-with-rcpp-in-30-minutes/">Build a R Package with Rcpp in 30 minutes</a></span> - <span>April 40, 26047</span>
+</li>
+            
+        
+            
+                <li class="post-item">
+    <span><a href="/blog/first-post/">first post</a></span> - <span>April 425, 14047</span>
+</li>
+            
+        
+            
+                <li class="post-item">
+    <span><a href="/blog/inla--lets-bypass-mcmc/">INLA : Let&#39;s bypass MCMC</a></span> - <span>April 30, 12037</span>
 </li>
             
         
@@ -146,7 +161,7 @@ ga('send', 'pageview');
 
 <div class="container has-text-centered top-pad">
 <hr>
-<a href="https://pingqingsheng.github.io/blog/#top">TOP</a>
+<a href="/blog/#top">TOP</a>
 <hr>
 </div>
 
@@ -169,7 +184,7 @@ ga('send', 'pageview');
 <script type="text/javascript" src=/js/init.js></script>
 <script>
   
-  $('a[href^="https:\/\/pingqingsheng.github.io\/blog\/#"]').click(function(e) {
+  $('a[href^="\/blog\/#"]').click(function(e) {
     
     e.preventDefault();
     
