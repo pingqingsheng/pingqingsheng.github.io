@@ -14,10 +14,10 @@
 <title>
 
 
-     first post 
+     INLA : Let&#39;s bypass MCMC 
 
 </title>
-<link rel="canonical" href="https://pingqingsheng.github.io/blog/first-post/">
+<link rel="canonical" href="https://pingqingsheng.github.io/blog/inla--lets-bypass-mcmc/">
 
 
 
@@ -120,31 +120,31 @@ ga('send', 'pageview');
     </div>
 
     <div class="container fade-in two">
-        <h2 class="title is-1 top-pad strong-post-title"><a href="https://pingqingsheng.github.io/blog/first-post/">first post</a></h2>
+        <h2 class="title is-1 top-pad strong-post-title"><a href="https://pingqingsheng.github.io/blog/inla--lets-bypass-mcmc/">INLA : Let&#39;s bypass MCMC</a></h2>
             <div class="post-data">
-                April 425, 14047 |
-                1 minute read
+                April 40, 26047 |
+                2 minutes read
             </div>
             
             
                 <div class="blog-share">
                 Share this:
-                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20first%20post%20https%3a%2f%2fpingqingsheng.github.io%2fblog%2ffirst-post%2f"
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Read%20INLA%20%3a%20Let%27s%20bypass%20MCMC%20https%3a%2f%2fpingqingsheng.github.io%2fblog%2finla--lets-bypass-mcmc%2f"
                 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fa fa-twitter"></i>
                 <span class="hidden">Twitter</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fpingqingsheng.github.io%2fblog%2ffirst-post%2f"
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fpingqingsheng.github.io%2fblog%2finla--lets-bypass-mcmc%2f"
                 onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                 <i class="fa fa-facebook"></i>
                 <span class="hidden">Facebook</span>
                 </a>
-                <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fpingqingsheng.github.io%2fblog%2ffirst-post%2f&amp;description=first%20post"
+                <a class="icon-pinterest" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fpingqingsheng.github.io%2fblog%2finla--lets-bypass-mcmc%2f&amp;description=INLA%20%3a%20Let%27s%20bypass%20MCMC"
                 onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
                 <i class="fa fa-pinterest"></i>
                 <span class="hidden">Pinterest</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fpingqingsheng.github.io%2fblog%2ffirst-post%2f"
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fpingqingsheng.github.io%2fblog%2finla--lets-bypass-mcmc%2f"
                 onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                 <i class="fa fa-linkedin"></i>
                 <span class="hidden">Google+</span>
@@ -155,7 +155,84 @@ ga('send', 'pageview');
     </div>
 
     <div class="container markdown fade-in two top-pad">
-        <p>This is my first Post !!</p>
+        <!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<div id="inla" class="section level3">
+<h3><strong>INLA</strong></h3>
+<p style="font-family : Arial; font-size : 150%">
+Markov Chain Monte Carlo (MCMC) is a widely used algorithm to sample from posterior distribution that is not in closed form. The draw back of MCMC is that it is usually computationally intensive and its convergence is hard to verify. Integrated nested Laplace approximation (INLA, original paper could be found at : <a href="https://folk.ntnu.no/hrue/r-inla.org/papers/inla-rss.pdf" class="uri">https://folk.ntnu.no/hrue/r-inla.org/papers/inla-rss.pdf</a>) is algorithm that , instead of sampling from posterior, try to analytically approximate the posterior. This method could be applied to a large collection of Bayesian model, and it’s usually many times faster and provide reasonable accuracy.
+</p>
+<p style="font-family : Arial; font-size : 150%">
+Let’s compare the computation speed of this method with a stan installment.
+</p>
+</div>
+<div id="simple-logistic-regression-example" class="section level3">
+<h3><strong>Simple Logistic Regression Example</strong></h3>
+<p style="font-family : Arial; font-size : 150%">
+Sample some data first :
+</p>
+<pre class="r"><code># Data generation
+n=1000
+Ntrials = sample(c(80:100), size=n, replace=TRUE)
+eta = rnorm(n,0,0.5)
+prob = exp(eta)/(1 + exp(eta))
+y = rbinom(n, size=Ntrials, prob = prob)
+dat=data.frame(y=y,z=1:n,Ntrials)</code></pre>
+<p style="font-family : Arial; font-size : 150%">
+<a href="http://www.r-inla.org/">R-INLA</a> project has a package <code> INLA </code> available in CRAN. Use it to estimate a logistic model :
+</p>
+<pre class="r"><code>library(INLA)
+
+formula = y ??? z 
+t_start &lt;- proc.time()
+m=inla(formula, data=dat,family=&quot;binomial&quot;,Ntrials=Ntrials,
+       control.predictor = list(compute = TRUE))
+t_end &lt;- proc.time()
+
+T_INLA &lt;- t_end - t_start</code></pre>
+</div>
+<div id="compared-with-stan" class="section level3">
+<h3><strong>Compared with Stan</strong></h3>
+<p>A stan code could be writen as :</p>
+<pre class="r"><code>data {
+  int&lt;lower=0&gt; N;
+  int&lt;lower=0&gt; p;
+  int&lt;lower=1&gt; z[N];
+  int&lt;lower=0&gt; Ntrials[N];
+  int&lt;lower=0&gt; y[N];
+}
+
+parameters {
+  real beta[p];
+}
+
+transformed parameters  {
+  real&lt;lower=0&gt; odds[N];
+  real&lt;lower=0, upper=1&gt; prob[N];
+
+  for (i in 1:N) {
+    odds[i] = exp(beta[1] + beta[2]*z[i]);
+    prob[i] = odds[i] / (odds[i] + 1);
+  }
+}
+
+model {
+    y ~ binomial(Ntrials, prob);
+}</code></pre>
+<p>Save code below as a .stan file and run following R code :</p>
+<pre class="r"><code>Dat &lt;- list(y = dat$y, z = dat$z, Ntrials = dat$Ntrials, N=length(y), p=2)
+
+T_start &lt;- proc.time()
+M_stan &lt;- stan(file = &#39;model.stan&#39;, data=Dat, 
+               chain=1, iter=10000,
+               verbose = TRUE)
+T_end &lt;- proc.time()
+
+T_stan &lt;- T_end - T_start</code></pre>
+</div>
 
     </div>
             
@@ -163,9 +240,9 @@ ga('send', 'pageview');
         <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'test';
-    var disqus_identifier = 'https:\/\/pingqingsheng.github.io\/blog\/first-post\/';
-    var disqus_title = 'first post';
-    var disqus_url = 'https:\/\/pingqingsheng.github.io\/blog\/first-post\/';
+    var disqus_identifier = 'https:\/\/pingqingsheng.github.io\/blog\/inla--lets-bypass-mcmc\/';
+    var disqus_title = 'INLA : Let\x27s bypass MCMC';
+    var disqus_url = 'https:\/\/pingqingsheng.github.io\/blog\/inla--lets-bypass-mcmc\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -179,7 +256,7 @@ ga('send', 'pageview');
 
 <div class="container has-text-centered top-pad">
 <hr>
-<a href="https://pingqingsheng.github.io/blog/first-post/#top">TOP</a>
+<a href="https://pingqingsheng.github.io/blog/inla--lets-bypass-mcmc/#top">TOP</a>
 <hr>
 </div>
 
@@ -202,7 +279,7 @@ ga('send', 'pageview');
 <script type="text/javascript" src=/js/init.js></script>
 <script>
   
-  $('a[href^="https:\/\/pingqingsheng.github.io\/blog\/first-post\/#"]').click(function(e) {
+  $('a[href^="https:\/\/pingqingsheng.github.io\/blog\/inla--lets-bypass-mcmc\/#"]').click(function(e) {
     
     e.preventDefault();
     
